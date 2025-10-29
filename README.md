@@ -1,2 +1,2 @@
-# spell-interpreter
+# spell Script Language
 interpriter design using golang
