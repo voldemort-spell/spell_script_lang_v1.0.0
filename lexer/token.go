@@ -36,4 +36,15 @@ const (
 	RBRACE   TokenType = "}"
 	LBRACKET TokenType = "["
 	RBRACKET TokenType = "]"
+
+	// keywords
+	FUNCTION TokenType = "FUNCTION"
+	LET      TokenType = "LET"
+	TRUE     TokenType = "TRUE"
+	FALSE    TokenType = "FALSE"
+	IF       TokenType = "IF"
+	ELSE     TokenType = "ELSE"
+	RETURN   TokenType = "RETURN"
+	FOR      TokenType = "FOR"
+	WHILE    TokenType = "WHILE"
 )
