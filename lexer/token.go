@@ -38,6 +38,10 @@ const (
 	RBRACKET TokenType = "]"
 
 	// keywords
+
+	// LET represent -> v (variable)
+	// define a variable v <variable_name> = <value>
+
 	FUNCTION TokenType = "FUNCTION"
 	LET      TokenType = "LET"
 	TRUE     TokenType = "TRUE"
@@ -54,4 +58,26 @@ type Token struct {
 	Type    TokenType
 	Literal string
 	Pos     Position
+}
+
+// check keywords
+func LookIdent(identtifer string) TokenType {
+
+	keywords := map[string]TokenType{
+		"fn":     FUNCTION,
+		"v":      LET,
+		"true":   TRUE,
+		"false":  FALSE,
+		"if":     IF,
+		"else":   ELSE,
+		"return": RETURN,
+		"for":    FOR,
+		"while":  WHILE,
+	}
+
+	if token, ok := keywords[identtifer]; ok {
+		return token
+	}
+
+	return IDENT
 }
