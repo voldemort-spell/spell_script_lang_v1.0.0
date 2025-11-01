@@ -93,6 +93,19 @@ func (lexer *Lexer) readNum() string {
 	return lexer.input[position:lexer.position]
 }
 
+// read string  input
+func (lexer *Lexer) readString() string {
+	position := lexer.position + 1
+
+	for {
+		lexer.readCharacter()
+		if lexer.ch == '"' || lexer.ch == 0 {
+			break
+		}
+	}
+	return lexer.input[position:lexer.position]
+}
+
 // return the next token in the input
 
 func (lexer *Lexer) NextToken() Token {
