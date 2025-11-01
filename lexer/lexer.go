@@ -120,6 +120,8 @@ func (lexer *Lexer) NextToken() Token {
 
 	// skip witespace
 
+	lexer.skipWhiteSpace()
+
 	switch lexer.ch {
 	case '=':
 		token = Token{Type: EQUAL, Literal: string(lexer.ch)}
@@ -157,7 +159,23 @@ func (lexer *Lexer) NextToken() Token {
 		token = Token{Type: RBRACKET, Literal: string(lexer.ch)}
 	case '"':
 		token.Type = STR
-		//token.Literal = l.re
+		token.Literal = lexer.readString()
+	case 0:
+		token.Literal = ""
+		token.Type = EOF
+	default:
+		if isLetter(lexer.ch) {
+			token.Literal = lexer.readIdentfi()
+			token.Type = LookIdent(token.Literal)
+			return token
+		} else if isDigit(lexer.ch) {
+			token.Type = NUMBER
+			token.Literal = lexer.readNum()
+			return token
+		} else {
+			token = Token{Type: ILLEGAL, Literal: string(lexer.ch)}
+		}
 	}
+	lexer.readCharacter()
 	return token
 }

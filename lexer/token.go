@@ -9,9 +9,9 @@ const (
 	EOF     TokenType = "EOF"
 
 	// identifiers and literals
-	IDENT TokenType = "IDENT"
-	INT   TokenType = "INT"
-	STR   TokenType = "STR"
+	IDENT  TokenType = "IDENT"
+	NUMBER TokenType = "NUMBER"
+	STR    TokenType = "STR"
 
 	// operators
 	ASSIGN     TokenType = "="
