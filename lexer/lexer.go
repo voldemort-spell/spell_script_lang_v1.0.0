@@ -19,7 +19,7 @@ func NewLexer(input string) *Lexer {
 	return lex
 }
 
-//readCharacter -> read the next character position
+// readCharacter -> read the next character position
 
 func (lexer *Lexer) readCharacter() {
 	if lexer.readPostion >= len(lexer.input) {
@@ -39,7 +39,7 @@ func (lexer *Lexer) readCharacter() {
 	}
 }
 
-//peekCharacter returns next char
+// peekCharacter returns next char
 
 func (lexer *Lexer) peekCharacter() rune {
 	if lexer.readPostion >= len(lexer.input) {
@@ -48,3 +48,9 @@ func (lexer *Lexer) peekCharacter() rune {
 	ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
 	return ch
 }
+
+// return the next token inthe input
+
+// func (lexer *Lexer) NextToken() Token {
+
+// }

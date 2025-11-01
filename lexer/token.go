@@ -48,3 +48,10 @@ const (
 	FOR      TokenType = "FOR"
 	WHILE    TokenType = "WHILE"
 )
+
+// Token -> reperesent lexical token
+type Token struct {
+	Type    TokenType
+	Literal string
+	Pos     Position
+}
