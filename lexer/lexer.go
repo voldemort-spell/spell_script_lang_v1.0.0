@@ -19,6 +19,7 @@ type Lexer struct {
 
 func NewLexer(input string) *Lexer {
 	lex := &Lexer{input: input}
+	lex.readCharacter()
 	return lex
 }
 
@@ -28,7 +29,7 @@ func (lexer *Lexer) readCharacter() {
 	if lexer.readPostion >= len(lexer.input) {
 		lexer.ch = 0
 	} else {
-		lexer.ch, _ = utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
+		lexer.ch, _ = utf8.DecodeRuneInString(lexer.input[lexer.readPostion:])
 	}
 
 	lexer.position = lexer.readPostion
@@ -146,9 +147,9 @@ func (lexer *Lexer) NextToken() Token {
 	case '*':
 		token = Token{Type: ASTERISK, Literal: string(lexer.ch)}
 	case '<':
-		token = Token{Type: GRATERTHAN, Literal: string(lexer.ch)}
-	case '>':
 		token = Token{Type: LESSTHAN, Literal: string(lexer.ch)}
+	case '>':
+		token = Token{Type: GRATERTHAN, Literal: string(lexer.ch)}
 	case ';':
 		token = Token{Type: SEMICO, Literal: string(lexer.ch)}
 	case ':':

@@ -26,7 +26,7 @@ const (
 	NOT_EQUAL  TokenType = "!="
 
 	// delimiter
-	COMMA  TokenType = "."
+	COMMA  TokenType = ","
 	SEMICO TokenType = ";"
 	COLON  TokenType = ":"
 
