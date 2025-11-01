@@ -1,6 +1,9 @@
 package lexer
 
-import "unicode/utf8"
+import (
+	"unicode"
+	"unicode/utf8"
+)
 
 // Lexer ----> lexical analyzer
 
@@ -48,6 +51,18 @@ func (lexer *Lexer) peekCharacter() rune {
 	ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
 	return ch
 }
+
+//check character is letter
+func isLetter(ch rune) bool {
+    return unicode.IsLetter(ch) || ch == '_'
+}
+
+//check cracter is digit
+func isDigit(ch rune) bool {
+    return unicode.IsDigit(ch)
+}
+
+
 
 // return the next token in the input
 
