@@ -52,17 +52,26 @@ func (lexer *Lexer) peekCharacter() rune {
 	return ch
 }
 
-//check character is letter
+// check character is letter
 func isLetter(ch rune) bool {
-    return unicode.IsLetter(ch) || ch == '_'
+	return unicode.IsLetter(ch) || ch == '_'
 }
 
-//check cracter is digit
+// check cracter is digit
 func isDigit(ch rune) bool {
-    return unicode.IsDigit(ch)
+	return unicode.IsDigit(ch)
 }
 
+// read identifier from input
+func (lexer *Lexer) readIdentfi() string {
+	position := lexer.position
 
+	for isLetter(lexer.ch) || isDigit(lexer.ch) {
+		lexer.readCharacter()
+	}
+
+	return lexer.input[position:lexer.position]
+}
 
 // return the next token in the input
 
