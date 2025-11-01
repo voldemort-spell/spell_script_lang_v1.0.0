@@ -49,8 +49,51 @@ func (lexer *Lexer) peekCharacter() rune {
 	return ch
 }
 
-// return the next token inthe input
+// return the next token in the input
 
-// func (lexer *Lexer) NextToken() Token {
+func (lexer *Lexer) NextToken() Token {
+	var token Token
 
-// }
+	// skip witespace
+
+	switch lexer.ch {
+	case '=':
+		token = Token{Type: EQUAL, Literal: string(lexer.ch)}
+	case '+':
+		token = Token{Type: PLUS, Literal: string(lexer.ch)}
+	case '-':
+		token = Token{Type: MINUS, Literal: string(lexer.ch)}
+	case '!':
+		token = Token{Type: BANG, Literal: string(lexer.ch)}
+	case '/':
+		token = Token{Type: SLASH, Literal: string(lexer.ch)}
+	case '*':
+		token = Token{Type: ASTERISK, Literal: string(lexer.ch)}
+	case '<':
+		token = Token{Type: GRATERTHAN, Literal: string(lexer.ch)}
+	case '>':
+		token = Token{Type: LESSTHAN, Literal: string(lexer.ch)}
+	case ';':
+		token = Token{Type: SEMICO, Literal: string(lexer.ch)}
+	case ':':
+		token = Token{Type: COLON, Literal: string(lexer.ch)}
+	case ',':
+		token = Token{Type: COMMA, Literal: string(lexer.ch)}
+	case '(':
+		token = Token{Type: LPAREN, Literal: string(lexer.ch)}
+	case ')':
+		token = Token{Type: RPAREN, Literal: string(lexer.ch)}
+	case '{':
+		token = Token{Type: LBRACE, Literal: string(lexer.ch)}
+	case '}':
+		token = Token{Type: RBRACE, Literal: string(lexer.ch)}
+	case '[':
+		token = Token{Type: LBRACKET, Literal: string(lexer.ch)}
+	case ']':
+		token = Token{Type: RBRACKET, Literal: string(lexer.ch)}
+	case '"':
+		token.Type = STR
+		//token.Literal = l.re
+	}
+	return token
+}

@@ -17,7 +17,7 @@ const (
 	ASSIGN     TokenType = "="
 	PLUS       TokenType = "+"
 	MINUS      TokenType = "-"
-	BAND       TokenType = "!"
+	BANG       TokenType = "!"
 	ASTERISK   TokenType = "*"
 	SLASH      TokenType = "/"
 	LESSTHAN   TokenType = "<"
@@ -31,7 +31,7 @@ const (
 	COLON  TokenType = ":"
 
 	LPAREN   TokenType = "("
-	RPAREN   TokenType = "}"
+	RPAREN   TokenType = ")"
 	LBRACE   TokenType = "{"
 	RBRACE   TokenType = "}"
 	LBRACKET TokenType = "["
