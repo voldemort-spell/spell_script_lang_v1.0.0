@@ -9,5 +9,5 @@ type Position struct {
 }
 
 func (p Position) String() string {
-	return fmt.Sprintf("%d%d", p.Line, p.Column)
+	return fmt.Sprintf("line %d, col %d", p.Line, p.Column)
 }

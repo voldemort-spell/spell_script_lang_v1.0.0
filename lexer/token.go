@@ -9,15 +9,15 @@ const (
 	EOF     TokenType = "EOF"
 
 	// identifiers and literals
-	IDENT TokenType = "IDENT"
-	INT   TokenType = "INT"
-	STR   TokenType = "STR"
+	IDENT  TokenType = "IDENT"
+	NUMBER TokenType = "NUMBER"
+	STR    TokenType = "STR"
 
 	// operators
 	ASSIGN     TokenType = "="
 	PLUS       TokenType = "+"
 	MINUS      TokenType = "-"
-	BAND       TokenType = "!"
+	BANG       TokenType = "!"
 	ASTERISK   TokenType = "*"
 	SLASH      TokenType = "/"
 	LESSTHAN   TokenType = "<"
@@ -26,18 +26,22 @@ const (
 	NOT_EQUAL  TokenType = "!="
 
 	// delimiter
-	COMMA  TokenType = "."
+	COMMA  TokenType = ","
 	SEMICO TokenType = ";"
 	COLON  TokenType = ":"
 
 	LPAREN   TokenType = "("
-	RPAREN   TokenType = "}"
+	RPAREN   TokenType = ")"
 	LBRACE   TokenType = "{"
 	RBRACE   TokenType = "}"
 	LBRACKET TokenType = "["
 	RBRACKET TokenType = "]"
 
 	// keywords
+
+	// LET represent -> v (variable)
+	// define a variable v <variable_name> = <value>
+
 	FUNCTION TokenType = "FUNCTION"
 	LET      TokenType = "LET"
 	TRUE     TokenType = "TRUE"
@@ -48,3 +52,32 @@ const (
 	FOR      TokenType = "FOR"
 	WHILE    TokenType = "WHILE"
 )
+
+// Token -> reperesent lexical token
+type Token struct {
+	Type    TokenType
+	Literal string
+	Pos     Position
+}
+
+// check keywords
+func LookIdent(identtifer string) TokenType {
+
+	keywords := map[string]TokenType{
+		"fn":     FUNCTION,
+		"v":      LET,
+		"true":   TRUE,
+		"false":  FALSE,
+		"if":     IF,
+		"else":   ELSE,
+		"return": RETURN,
+		"for":    FOR,
+		"while":  WHILE,
+	}
+
+	if token, ok := keywords[identtifer]; ok {
+		return token
+	}
+
+	return IDENT
+}
