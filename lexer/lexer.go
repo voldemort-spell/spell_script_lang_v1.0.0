@@ -25,7 +25,7 @@ func (lexer *Lexer) readCharacter() {
 	if lexer.readPostion >= len(lexer.input) {
 		lexer.ch = 0
 	} else {
-		lexer.ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
+		lexer.ch, _ = utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
 	}
 
 	lexer.position = lexer.readPostion
