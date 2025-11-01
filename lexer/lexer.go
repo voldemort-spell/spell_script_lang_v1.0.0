@@ -73,6 +73,26 @@ func (lexer *Lexer) readIdentfi() string {
 	return lexer.input[position:lexer.position]
 }
 
+// read number in input
+func (lexer *Lexer) readNum() string {
+	position := lexer.position
+
+	for isDigit(lexer.ch) {
+		lexer.readCharacter()
+	}
+
+	// decimal
+
+	if lexer.ch == '.' && isDigit(lexer.peekCharacter()) {
+		lexer.readCharacter()
+		for isDigit(lexer.ch) {
+			lexer.readCharacter()
+		}
+	}
+
+	return lexer.input[position:lexer.position]
+}
+
 // return the next token in the input
 
 func (lexer *Lexer) NextToken() Token {
