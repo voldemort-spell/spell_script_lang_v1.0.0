@@ -106,6 +106,13 @@ func (lexer *Lexer) readString() string {
 	return lexer.input[position:lexer.position]
 }
 
+// skip white spaces
+func (lexer *Lexer) skipWhiteSpace() {
+	for lexer.ch == ' ' || lexer.ch == '\t' || lexer.ch == '\n' || lexer.ch == '\r' {
+		lexer.readCharacter()
+	}
+}
+
 // return the next token in the input
 
 func (lexer *Lexer) NextToken() Token {
