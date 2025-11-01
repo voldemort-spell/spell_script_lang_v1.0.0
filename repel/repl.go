@@ -1,4 +1,4 @@
-package repel
+package repl
 
 import (
 	"bufio"
