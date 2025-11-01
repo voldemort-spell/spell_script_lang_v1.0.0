@@ -124,13 +124,23 @@ func (lexer *Lexer) NextToken() Token {
 
 	switch lexer.ch {
 	case '=':
-		token = Token{Type: EQUAL, Literal: string(lexer.ch)}
+		if lexer.peekCharacter() == '=' {
+			lexer.readCharacter()
+			token = Token{Type: EQUAL, Literal: "=="}
+		} else {
+			token = Token{Type: ASSIGN, Literal: string(lexer.ch)}
+		}
 	case '+':
 		token = Token{Type: PLUS, Literal: string(lexer.ch)}
 	case '-':
 		token = Token{Type: MINUS, Literal: string(lexer.ch)}
 	case '!':
-		token = Token{Type: BANG, Literal: string(lexer.ch)}
+		if lexer.peekCharacter() == '='{
+			lexer.readCharacter()
+			token = Token{Type: NOT_EQUAL, Literal: "!="}
+		} else {
+			token = Token{Type: BANG, Literal: string(lexer.ch)}
+		}
 	case '/':
 		token = Token{Type: SLASH, Literal: string(lexer.ch)}
 	case '*':
