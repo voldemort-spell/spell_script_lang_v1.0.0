@@ -25,7 +25,7 @@ func (lexer *Lexer) readCharacter() {
 	if lexer.readPostion >= len(lexer.input) {
 		lexer.ch = 0
 	} else {
-		lexer.ch, _ = utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
+		lexer.ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
 	}
 
 	lexer.position = lexer.readPostion
@@ -37,4 +37,14 @@ func (lexer *Lexer) readCharacter() {
 		lexer.pos.Line++
 		lexer.pos.Column = 0
 	}
+}
+
+//peekCharacter returns next char
+
+func (lexer *Lexer) peekCharacter() rune {
+	if lexer.readPostion >= len(lexer.input) {
+		return 0
+	}
+	ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
+	return ch
 }
