@@ -23,12 +23,12 @@ func TestNextToken(t *testing.T) {
 		tk := lex.NextToken()
 
 		if tk.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - token type wrong. expected=%q, got=%q",
+			t.Fatalf("tests[%d] - token type err. expected=%q, got=%q",
 				i, tt.expectedType, tk.Type)
 		}
 
 		if tk.Literal != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q",
+			t.Fatalf("tests[%d] - literal err. expected=%q, got=%q",
 				i, tt.expectedLiteral, tk.Literal)
 		}
 
