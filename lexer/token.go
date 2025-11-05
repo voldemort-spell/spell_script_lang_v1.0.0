@@ -51,6 +51,9 @@ const (
 	RETURN   TokenType = "RETURN"
 	FOR      TokenType = "FOR"
 	WHILE    TokenType = "WHILE"
+	PRINT    TokenType = "PRINT"
+	PRINTLN  TokenType = "PRINTLN"
+	
 )
 
 // Token -> reperesent lexical token
@@ -63,6 +66,7 @@ type Token struct {
 // check keywords
 func LookIdent(identtifer string) TokenType {
 
+	
 	keywords := map[string]TokenType{
 		"fn":     FUNCTION,
 		"v":      LET,
@@ -73,6 +77,7 @@ func LookIdent(identtifer string) TokenType {
 		"return": RETURN,
 		"for":    FOR,
 		"while":  WHILE,
+		"print":  PRINT,
 	}
 
 	if token, ok := keywords[identtifer]; ok {
