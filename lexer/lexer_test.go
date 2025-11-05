@@ -42,7 +42,7 @@ func TestNextToken_code(t *testing.T) {
 		v  value1 = 100
 		v  value2 = -120
 
-		v sumeation = fn(x, y){
+		v sumation = fn(x, y){
 			return x + y
 		}
 
@@ -66,7 +66,7 @@ func TestNextToken_code(t *testing.T) {
 		{NUMBER, "120"},
 
 		{VAR, "v"},
-		{IDENT, "summeation"},
+		{IDENT, "sumation"},
 		{ASSIGN, "="},
 		{FUNCTION, "fn"},
 		{LPAREN, "("},
@@ -79,12 +79,12 @@ func TestNextToken_code(t *testing.T) {
 		{IDENT, "x"},
 		{PLUS, "+"},
 		{IDENT, "y"},
-		{LBRACE, "}"},
+		{RBRACE, "}"},
 
 		{PRINT, "print"},
 		{LPAREN, "("},
-		{IDENT, "summation"},
-		{LPAREN, ")"},
+		{IDENT, "sumation"},
+		{RPAREN, ")"},
 
 		{EOF, ""},
 	}
