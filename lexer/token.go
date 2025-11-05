@@ -11,7 +11,8 @@ const (
 	// identifiers and literals
 	IDENT  TokenType = "IDENT"
 	NUMBER TokenType = "NUMBER"
-	STR    TokenType = "STR"
+	STRING   TokenType = "STR"
+	// INT    TokenType = "INT"
 
 	// operators
 	ASSIGN     TokenType = "="
@@ -43,7 +44,7 @@ const (
 	// define a variable v <variable_name> = <value>
 
 	FUNCTION TokenType = "FUNCTION"
-	LET      TokenType = "LET"
+	VAR      TokenType = "VAR"
 	TRUE     TokenType = "TRUE"
 	FALSE    TokenType = "FALSE"
 	IF       TokenType = "IF"
@@ -51,6 +52,8 @@ const (
 	RETURN   TokenType = "RETURN"
 	FOR      TokenType = "FOR"
 	WHILE    TokenType = "WHILE"
+	PRINT    TokenType = "PRINT"
+	PRINTLN  TokenType = "PRINTLN"
 )
 
 // Token -> reperesent lexical token
@@ -65,7 +68,7 @@ func LookIdent(identtifer string) TokenType {
 
 	keywords := map[string]TokenType{
 		"fn":     FUNCTION,
-		"v":      LET,
+		"v":      VAR,
 		"true":   TRUE,
 		"false":  FALSE,
 		"if":     IF,
@@ -73,6 +76,7 @@ func LookIdent(identtifer string) TokenType {
 		"return": RETURN,
 		"for":    FOR,
 		"while":  WHILE,
+		"print":  PRINT,
 	}
 
 	if token, ok := keywords[identtifer]; ok {

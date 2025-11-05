@@ -169,7 +169,7 @@ func (lexer *Lexer) NextToken() Token {
 	case ']':
 		token = Token{Type: RBRACKET, Literal: string(lexer.ch)}
 	case '"':
-		token.Type = STR
+		token.Type = STRING
 		token.Literal = lexer.readString()
 	case 0:
 		token.Literal = ""
@@ -181,7 +181,7 @@ func (lexer *Lexer) NextToken() Token {
 			return token
 		} else if isDigit(lexer.ch) {
 			token.Type = NUMBER
-			token.Literal = lexer.readNum()
+			token.Literal = lexer.readNum() // -------this line NUMBER
 			return token
 		} else {
 			token = Token{Type: ILLEGAL, Literal: string(lexer.ch)}
