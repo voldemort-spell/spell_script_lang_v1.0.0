@@ -12,6 +12,7 @@ const (
 	IDENT  TokenType = "IDENT"
 	NUMBER TokenType = "NUMBER"
 	STR    TokenType = "STR"
+	INT    TokenType = "INT"
 
 	// operators
 	ASSIGN     TokenType = "="
@@ -53,7 +54,6 @@ const (
 	WHILE    TokenType = "WHILE"
 	PRINT    TokenType = "PRINT"
 	PRINTLN  TokenType = "PRINTLN"
-	
 )
 
 // Token -> reperesent lexical token
@@ -66,7 +66,6 @@ type Token struct {
 // check keywords
 func LookIdent(identtifer string) TokenType {
 
-	
 	keywords := map[string]TokenType{
 		"fn":     FUNCTION,
 		"v":      VAR,
