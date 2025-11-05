@@ -43,7 +43,7 @@ const (
 	// define a variable v <variable_name> = <value>
 
 	FUNCTION TokenType = "FUNCTION"
-	LET      TokenType = "LET"
+	VAR      TokenType = "VAR"
 	TRUE     TokenType = "TRUE"
 	FALSE    TokenType = "FALSE"
 	IF       TokenType = "IF"
@@ -69,7 +69,7 @@ func LookIdent(identtifer string) TokenType {
 	
 	keywords := map[string]TokenType{
 		"fn":     FUNCTION,
-		"v":      LET,
+		"v":      VAR,
 		"true":   TRUE,
 		"false":  FALSE,
 		"if":     IF,
