@@ -11,8 +11,8 @@ const (
 	// identifiers and literals
 	IDENT  TokenType = "IDENT"
 	NUMBER TokenType = "NUMBER"
-	STR    TokenType = "STR"
-	INT    TokenType = "INT"
+	STRING   TokenType = "STR"
+	// INT    TokenType = "INT"
 
 	// operators
 	ASSIGN     TokenType = "="
