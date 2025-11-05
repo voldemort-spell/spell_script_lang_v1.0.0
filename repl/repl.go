@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-const PROMPT = ">>> "
+const PROMPT = ">> "
 
 func Start() {
 	scanner := bufio.NewScanner(os.Stdin)
@@ -21,7 +21,7 @@ func Start() {
 
 		line := scanner.Text()
 		if strings.TrimSpace(line) == "exit" {
-			fmt.Println("Goodbye!")
+			fmt.Println("..............!")
 			break
 		}
 

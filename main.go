@@ -31,7 +31,7 @@ func main() {
 		}
 	} else {
 		// REPL mode
-		fmt.Println("Welcome to My Language REPL!")
+		fmt.Println("Welcome to spell script REPL!")
 		fmt.Println("Type your code or 'exit' to quit")
 		fmt.Println(strings.Repeat("-", 40))
 		repl.Start()

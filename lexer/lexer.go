@@ -49,7 +49,7 @@ func (lexer *Lexer) peekCharacter() rune {
 	if lexer.readPostion >= len(lexer.input) {
 		return 0
 	}
-	ch, _ := utf8.DecodeLastRuneInString(lexer.input[lexer.readPostion:])
+	ch, _ := utf8.DecodeRuneInString(lexer.input[lexer.readPostion:])
 	return ch
 }
 
@@ -136,7 +136,7 @@ func (lexer *Lexer) NextToken() Token {
 	case '-':
 		token = Token{Type: MINUS, Literal: string(lexer.ch)}
 	case '!':
-		if lexer.peekCharacter() == '='{
+		if lexer.peekCharacter() == '=' {
 			lexer.readCharacter()
 			token = Token{Type: NOT_EQUAL, Literal: "!="}
 		} else {
